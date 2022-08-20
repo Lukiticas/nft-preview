@@ -1,60 +1,51 @@
-import { CardBody } from "./Card.styles.js";
+import { DefaultAnchor } from "../../styles/global.styles.js"; //  a
+import {
+  CardBody, // section
+  CardDescription, // p
+  CardDetails, // div
+  CardImage, // styled a
+  CardName, //h3
+  OwnerInfo, // div
+} from "./Card.styles.js";
 
-export default function Card({ informations }) {
-  const {
-    nftName,
-    id,
-    description,
-    price,
-    currency,
-    period,
-    artistName,
-    artistIcon,
-    cardPreview,
-  } = informations;
-  const curIcon = `./icon/icon-${currency}.svg`;
+function Card({ informations }) {
+  const curIcon = `./icon/icon-${informations.currency}.svg`;
   const clockIcon = "./icon/icon-clock.svg";
   const viewIcon = "./icon/icon-view.svg";
+  const treatedCurrency = informations.currency.substring(0, 3).toUpperCase();
 
   return (
-    <CardBody className="card">
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="card__preview"
-      >
-        <img src={cardPreview} alt="" />
+    <CardBody>
+      <CardImage>
+        <img src={informations.cardPreview} alt="" />
         <img src={viewIcon} alt="" />
-      </a>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="card__name"
-      >
-        {nftName} <span className="card__name--id">{id}</span>
-      </a>
-      <p className="card__description">{description}</p>
-      <div className="card__details">
-        <span className="details__currency">
+      </CardImage>
+      <CardName>
+        <DefaultAnchor>
+          {informations.nftName}
+          <span>{informations.id}</span>
+        </DefaultAnchor>
+      </CardName>
+      <CardDescription>{informations.description}</CardDescription>
+      <CardDetails>
+        <span>
           <img src={curIcon} alt="" />
-          {`${price} ${currency.substring(0, 3).toUpperCase()}`}
+          {`${informations.price} ${treatedCurrency}`}
         </span>
-        <span className="details__period">
+        <span>
           <img src={clockIcon} alt="" />
-          {period}
+          {informations.period}
         </span>
-      </div>
-      <figure className="card__owner-info">
-        <img src={artistIcon} alt="" />
+      </CardDetails>
+      <OwnerInfo>
+        <img src={informations.artistIcon} alt="" />
         <figcaption>
           Creation of
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            {artistName}
-          </a>
+          <DefaultAnchor>{informations.artistName}</DefaultAnchor>
         </figcaption>
-      </figure>
+      </OwnerInfo>
     </CardBody>
   );
 }
+
+export default Card;

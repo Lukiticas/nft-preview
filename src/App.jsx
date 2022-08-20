@@ -1,9 +1,17 @@
 import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./styles/global.styles.js";
+import usePersistedState from "./utils/UsePersistedState.jsx";
 import Card from "./components/Card";
+import Header from "./components/Header/index.jsx";
+import GlobalStyles from "./styles/global.styles.js";
 import dark from "./styles/themes/dark.js";
+import light from "./styles/themes/light.js";
 
 function App() {
+  const [theme, setTheme] = usePersistedState("theme", light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title == "white" ? dark : light);
+  };
   const exampleCard = {
     nftName: "Equilibrium",
     id: "3429",
@@ -17,10 +25,13 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={theme}>
       <div className="app">
         <GlobalStyles />
-        <Card informations={exampleCard} key={exampleCard.id} />
+        <Header handleThemes={toggleTheme} />
+        <div className="cardsWrapper">
+          <Card informations={exampleCard} key={exampleCard.id} />
+        </div>
       </div>
     </ThemeProvider>
   );
