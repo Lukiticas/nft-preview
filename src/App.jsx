@@ -8,10 +8,6 @@ import light from "./styles/themes/light.js";
 
 function App() {
   const [theme, setTheme] = usePersistedState("theme", light);
-
-  const toggleTheme = () => {
-    setTheme(theme.title == "white" ? dark : light);
-  };
   const exampleCard = {
     nftName: "Equilibrium",
     id: "3429",
@@ -22,6 +18,10 @@ function App() {
     artistName: "Jules Wyvern",
     artistIcon: "./images/image-avatar.png",
     cardPreview: "./images/image-equilibrium.jpg",
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme.title == "white" ? dark : light);
   };
 
   return (

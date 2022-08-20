@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Outfit', sans-serif;
-        transition: color 200ms ease-in;
-        transition: background-color 200ms ease-in;
+        transition: color 300ms ease-out;
+        transition: background-color 300ms ease-out;
 
     }
 
@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
         place-items: center;
         width: 100%;
         min-height: calc(100vh - max(3.5rem, 60px));
+
     }
 
 `;

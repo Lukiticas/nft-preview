@@ -20,6 +20,7 @@ export const CardBody = styled.article`
   width: 25rem;
   height: 40rem;
   padding: 1.5rem;
+  z-index: 1;
   border-radius: 1.5rem;
   background-color: ${(props) => props.theme.colors.bgSecundary};
   animation: ${CCEaseIn} 500ms linear;
@@ -47,7 +48,7 @@ export const CardImage = styled(DefaultAnchor)`
   & img:nth-child(2) {
     width: 25%;
     opacity: 0;
-    z-index: 1;
+    z-index: 10;
     position: absolute;
   }
 

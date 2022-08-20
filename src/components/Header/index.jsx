@@ -11,7 +11,10 @@ function Header({ handleThemes }) {
       <HeaderImg />
       <HeaderTitle>
         NFT preview by
-        <DefaultAnchor to="https://www.frontendmentor.io/profile/Lukiticas">
+        <DefaultAnchor
+          to="https://www.frontendmentor.io/profile/Lukiticas"
+          target="_blank"
+        >
           Lucas Matheus
         </DefaultAnchor>
       </HeaderTitle>
