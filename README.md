@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![preview](./images/preview.jpg)
+![preview](https://github.com/Lukiticas/nft-preview/blob/master/public/images/preview.jpg)
 
 ### Links
 
