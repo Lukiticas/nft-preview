@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./images/mobile-design.jpg)
+![](\public\images\preview.jpg)
 
 ### Links
 
